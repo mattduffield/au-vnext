@@ -104,6 +104,9 @@
         statusText: 'OK',
         headers:    {'Content-Type': contentType}
       };
+      //
+      // perhaps we need to use another value for a unique key
+      //
       caches.match(req).then(cachedResponse => {
         if (cachedResponse) {
           init.status = cachedResponse.status;
@@ -112,6 +115,7 @@
             init.headers[k] = v;
           });
         }
+        console.log('init', init);
         return caches.open(CACHE_NAME).then(cache => {
           const res = new Response(value, init);
           // console.log(`caching (${key}): ${value}`);
