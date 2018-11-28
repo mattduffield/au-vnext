@@ -47,23 +47,25 @@ self.addEventListener('fetch', event => {
             !NO_CACHE_ORIGINS.includes(reqUrl.origin)) {
             // console.log('sw:caching (', CACHE_NAME, ') - ', event.request.url);
             // Put a copy of the response in the runtime cache.
-            // let contentType = 'text/plain';
-            // let init = {
-            //   status:     200,
-            //   statusText: 'OK',
-            //   headers:    {'Content-Type': contentType}
-            // };
-            // init.status = response.status;
-            // init.statusText = response.statusText;
-            // response.forEach((v,k) => {
-            //   init.headers[k] = v;
-            // });
-            // const res = new Response(value, init);
-
-            // return cache.put(event.request, res).then(() => {
-            return cache.put(event.request, response.clone()).then(() => {
-              return response;
+            let contentType = 'text/plain';
+            let init = {
+              status:     200,
+              statusText: 'OK',
+              headers:    {'content-type': contentType}
+            };
+            init.status = response.status;
+            init.statusText = response.statusText;
+            response.headers.forEach((v,k) => {
+              init.headers[k] = v;
             });
+            const res = new Response(value, init);
+
+            return cache.put(event.request, res).then(() => {
+              return res;
+            });
+            // return cache.put(event.request, response.clone()).then(() => {
+            //   return response;
+            // });
           } else {
             return response;
           }
