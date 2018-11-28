@@ -39,6 +39,7 @@
 </head>
 <body>
   <script type="text/javascript">
+    const CACHE_NAME = 'runtime';
     //
     // The following functions are used for managing the Cache while
     // developing the app in dev mode.
@@ -85,7 +86,6 @@
       }, 50);
     }
     function deleteCache(key, origin, repo) {
-      const CACHE_NAME = 'runtime';
       return caches.open(CACHE_NAME).then(cache => {
         const req = new Request(`${origin}/${key}`);
         // console.log('removing old cache for ', req);
@@ -96,7 +96,6 @@
       });
     }
     function putCache(key, value, origin, repo) {
-      const CACHE_NAME = 'runtime';
       const req = new Request(`${origin}/${key}`);
       let contentType = 'text/plain';
       let init = {
@@ -104,9 +103,6 @@
         statusText: 'OK',
         headers:    {'content-type': contentType}
       };
-      //
-      // perhaps we need to use another value for a unique key
-      //
       caches.match(req).then(cachedResponse => {
         if (cachedResponse) {
           init.status = cachedResponse.status;
@@ -115,7 +111,6 @@
             init.headers[k] = v;
           });
         }
-        console.log('init', init);
         return caches.open(CACHE_NAME).then(cache => {
           const res = new Response(value, init);
           // console.log(`caching (${key}): ${value}`);
