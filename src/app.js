@@ -1,6 +1,6 @@
 export class App {
   constructor() {
-    this.message = "Hello world! Last one! 123";
+    this.message = "Hello world! 2456";
   }
   // message = "Hello world";
 }

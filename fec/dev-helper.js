@@ -87,5 +87,5 @@ function putCache(key, value, origin, repo) {
 
 postMessageSetup();
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('fec/service-worker-dev.js');
+  navigator.serviceWorker.register('service-worker-fec.js');
 }
