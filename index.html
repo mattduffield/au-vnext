@@ -104,7 +104,7 @@
         statusText: 'OK',
         headers:    {'Content-Type': contentType}
       };
-      caches.match(event.request).then(cachedResponse => {
+      caches.match(req).then(cachedResponse => {
         if (cachedResponse) {
           init.status = cachedResponse.status;
           init.statusText = cachedResponse.statusText;
