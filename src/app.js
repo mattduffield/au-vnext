@@ -7,7 +7,7 @@ export class App {
     config.map([
       {
         route: ["", "contacts"],
-        moduleId: "views/contacts/contacts.js",
+        moduleId: "views/contacts/contacts",
         nav: true,
         title: "Contacts"
       }
