@@ -125,7 +125,7 @@
     aurelia
       .start()
       .then(() => {
-        aurelia.get(au.Loader).baseUrl = location.origin + 'au-vnext';        
+        aurelia.container.get(au.Loader).baseUrl = location.origin + 'au-vnext';        
         aurelia.setRoot('src/app.js', document.body);
       })
       .catch(ex => {
