@@ -111,7 +111,7 @@
         if (cachedResponse) {
           init.status = cachedResponse.status;
           init.statusText = cachedResponse.statusText;
-          cachedResponse.forEach((v,k) => {
+          cachedResponse.headers.forEach((v,k) => {
             init.headers[k] = v;
           });
         }
