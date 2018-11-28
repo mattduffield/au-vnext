@@ -6,8 +6,14 @@ export class App {
   configureRouter(config, router) {
     config.map([
       {
-        route: ["", "contacts"],
-        moduleId: "views/contacts/contacts",
+        route: ["", "home"],
+        moduleId: "src/views/home/home.js",
+        nav: true,
+        title: "Home"
+      },
+      {
+        route: "contacts",
+        moduleId: "src/views/contacts/contacts.js",
         nav: true,
         title: "Contacts"
       }
