@@ -99,8 +99,15 @@
       const CACHE_NAME = 'runtime';
       return caches.open(CACHE_NAME).then(cache => {
         const req = new Request(`${origin}/${key}`);
+        // const contentType = 'text/plain';
+        // const init = {
+        //   status:     200,
+        //   statusText: 'OK',
+        //   headers:    {'Content-Type': contentType}
+        // };
+        // const res = new Response(value, init);
         const res = new Response(value);
-        // console.log(`caching (${key}): ${value}`);
+        console.log(`caching (${key}): ${value}`);
         // Put a copy of the response in the runtime cache.
         return cache.put(req, res).then(() => {
           // Completed caching.
