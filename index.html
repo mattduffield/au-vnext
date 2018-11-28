@@ -112,7 +112,7 @@
           cachedResponse.headers.forEach((v,k) => {
             init.headers[k] = v;
           });
-          init.headers.set('content-length', value.length.toString());
+          init.headers['content-length'] = value.length.toString();
         }
         return caches.open(CACHE_NAME).then(cache => {
           const res = new Response(value, init);
