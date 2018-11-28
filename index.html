@@ -99,9 +99,11 @@
       const req = new Request(`${origin}/${key}`);
       let contentType = 'text/plain';
       let init = {
-        status:     200,
+        status: 200,
         statusText: 'OK',
-        headers:    {'content-type': contentType}
+        headers: {
+          'content-type': contentType
+        }
       };
       caches.match(req).then(cachedResponse => {
         if (cachedResponse) {
@@ -110,6 +112,7 @@
           cachedResponse.headers.forEach((v,k) => {
             init.headers[k] = v;
           });
+          init.headers.set('content-length', value.length.toString());
         }
         return caches.open(CACHE_NAME).then(cache => {
           const res = new Response(value, init);
