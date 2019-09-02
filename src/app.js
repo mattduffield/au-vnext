@@ -1,6 +1,6 @@
 export class App {
   constructor() {
-    this.message = "Hello world! Seriously, it has never been easier than this! And now this...123";
+    this.message = "Hello world! Seriously, it has never been easier than this!";
   }
   // message = "Hello world";
   configureRouter(config, router) {
