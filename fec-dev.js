@@ -14,7 +14,9 @@ async function receiveMessage(event) {
     'http://frontendcreator.com',
     'http://www.frontendcreator.com',
     'https://frontendcreator.com',
-    'https://www.frontendcreator.com'
+    'https://www.frontendcreator.com',
+    'http://fec-dev.appspot.com',
+    'https://fec-dev.appspot.com'
   ];
   if (!origins.includes(event.origin)) return;
 

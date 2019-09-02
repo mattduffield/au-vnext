@@ -9,7 +9,10 @@ const NO_CACHE_ORIGINS = [
   'https://us-central1-quoteone-staging.cloudfunctions.net',
   'https://us-central1-quoteone-production.cloudfunctions.net',
   'https://quoteone-production.appspot.com',
-  'https://quoteone-staging.appspot.com'
+  'https://quoteone-staging.appspot.com',
+  'https://www.googleapis.com',
+  'https://firestore.googleapis.com',
+  'https://us-central1-fec-production.cloudfunctions.net'
 ];
 
 // The install handler takes care of precaching the resources we always need.
